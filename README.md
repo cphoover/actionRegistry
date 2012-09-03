@@ -33,4 +33,4 @@ trigger index of actions property is looped through and all functions therein ar
 	
 	example2.do("alertHelloWorld");
 	
-	//result: alerts "Hello" then alerts "world"
+	//result: alerts "Hello" and alerts "world"
