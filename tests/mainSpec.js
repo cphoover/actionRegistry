@@ -68,15 +68,15 @@ describe("AdgActionRegistry", function(){
                 window.testVar += 3;
             },
             b = function(){
-                window.testVar += 2;
+                window.testVar =  Math.pow(window.testVar,  2);
             },
             c = function(){
-                window.testVar += 1;
+                window.testVar = window.testVar / 2;
             };
             var funcArray = new Array(a,b,c);
             x5.register('myTrigger', funcArray);
             x5.do('myTrigger');
-            expect(window.testVar == 9).toBeTruthy();
+            expect(window.testVar == 18).toBeTruthy();
         });
         
         it("throws an exception if given an undefined trigger", function(){
