@@ -13,7 +13,7 @@ AdgActionRegistry.prototype.register = function(trigger, action){
  if(typeof this.actions[trigger] == 'undefined'){
     this.actions[trigger] = new Array();
  }
-//if paramater is a function just push it.
+ //if paramater is a function just push it.
  if(typeof action == "function"){
         this.actions[trigger].push(action);
  }
