@@ -27,8 +27,10 @@ describe("AdgActionRegistry", function(){
             var func1 = function(){alert('Hello'); };
             var func2 = function(){alert('world'); };
             var funcArray = new Array(func1, func2);
+            
             x3.register('alertEvent', funcArray);
             var contains = false;
+            
             //loop through the actions see if our funciton is in there
             for(var i in x3.actions.alertEvent){
                var action =  x3.actions.alertEvent[i];
@@ -37,7 +39,10 @@ describe("AdgActionRegistry", function(){
                 contains = true;
                }
             }
+
             expect(contains).toBeTruthy();
+
+
         });
 
 
@@ -60,6 +65,7 @@ describe("AdgActionRegistry", function(){
     });
 
     describe("do method", function(){
+        
         it("executes all corresponding  methods registered to trigger", function(){
             var x5 = new AdgActionRegistry();
 
@@ -73,10 +79,15 @@ describe("AdgActionRegistry", function(){
             c = function(){
                 window.testVar += 1;
             };
+
             var funcArray = new Array(a,b,c);
             x5.register('myTrigger', funcArray);
+
             x5.do('myTrigger');
+
             expect(window.testVar == 9).toBeTruthy();
+
+
         });
         
         it("throws an exception if given an undefined trigger", function(){
