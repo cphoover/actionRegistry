@@ -59,7 +59,7 @@ describe("AdgActionRegistry", function(){
 
     });
 
-    describe("do method", function(){
+    describe("trigger method", function(){
         it("executes all corresponding  methods registered to trigger", function(){
             var x5 = new AdgActionRegistry();
 
@@ -75,18 +75,18 @@ describe("AdgActionRegistry", function(){
             };
             var funcArray = new Array(a,b,c);
             x5.register('myTrigger', funcArray);
-            x5.do('myTrigger');
+            x5.trigger('myTrigger');
             expect(window.testVar == 18).toBeTruthy();
         });
         
         it("throws an exception if given an undefined trigger", function(){
             var x6 = new AdgActionRegistry();
-            expect(function(){ x6.do('asdf'); }).toThrow();
+            expect(function(){ x6.trigger('asdf'); }).toThrow();
         });
         it("doesn't throw an exception if trigger exists", function(){
             var x7 = new AdgActionRegistry();
             x7.register('myTrigger', function(){console.log('myTrigger action'); });
-            expect(function(){ x7.do('myTrigger'); }).not.toThrow();
+            expect(function(){ x7.trigger('myTrigger'); }).not.toThrow();
         });
     });
     
