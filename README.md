@@ -26,11 +26,11 @@ Actions can either be a function or an array of functions. If the actions parama
             
             example2.register('alertHelloWorld', funcArray);
 
-## do(trigger)
+## trigger(trigger)
 **Very simply invoke all the functions registered to that trigger**
 trigger index of actions property is looped through and all functions therein are invoked. There is no guarentee that the functions will execute sequentially.  As of current there is no option to enable sequential execution of functions.
 ##### Usage example:
 	
-	example2.do("alertHelloWorld");
+	example2.trigger("alertHelloWorld");
 	
 	//result: alerts "Hello" and alerts "world"
